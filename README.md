@@ -5,6 +5,8 @@ Peek is a system of creating and deploying augmented reality content using the [
 
 ###Example Unity Project
 
+![Screenshot of Example Unity Project](https://dl.dropboxusercontent.com/u/27507970/brad.png)
+
 The example Unity Project is a means of demonstrating and playing with the RGBDShader, a Unity shader designed to render 3D models from image frames exported from the [RGBD Toolkit](http://rgbdtoolkit.com).
 
 IMPORTANT NOTE: The RGBDShader is written in GLSL, which means that it will only run reliably on Macs. This only affects the Unity editor, though; anything exported from a Mac Unity editor will run on any platform.
