@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{2B9DE6BC-0731-1CD4-DDE0-1044AB5DB018}</ProjectGuid>
+	<ProjectGuid>{313DA7D0-17EF-CEE0-1FD2-AA3A1EDF4906}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,8 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Rotate.cs" />
      <Compile Include="Assets\RunFrames.cs" />
-     <None Include="Assets\Resources\andy_demo\_depthProperties.xml" />
      <None Include="Assets\RGBDShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

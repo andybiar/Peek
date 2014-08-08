@@ -3,45 +3,65 @@ using System.Collections;
 
 
 public class RunFrames : MonoBehaviour {
+
+	// The number of frames in your animation
+	public int NUM_FRAMES;
+
+	// The directory (Resources/<FOLDER>) where your frames are stored
+	//    Be sure to include a "/" at the end!
+	public string FOLDER;
+
+	// All frame filenames must begin with this naming convention
+	//    If nothing is provided, defaults to RGBD Toolkit export
+	public string FRAME_NAME_CONV;
 		
-	ArrayList imageBuffer = new ArrayList();
-	int frameNum;
+	private ArrayList frames = new ArrayList();
+	private int frameNum;
 	
-	//Loads all frames into buffer from directory
+	//Loads all frames into RAM from file structure
 	private void LoadImages()
 	{
-	    string pathPrefix = @"file://";
-	    string pathImageAssets = Application.dataPath + "/depthPNGs";
-	    string filename = @"save.";
-	    string fileSuffix = @".png";
+		if (FRAME_NAME_CONV.Equals ("")) 
+		{
+			FRAME_NAME_CONV = @"save.";
+		}
 	     
-	    for (int i=0; i < 97; i++)
+	    for (int i=0; i < NUM_FRAMES; i++)
 	    {
-	    	string indexSuffix = "";
+			// This mess prepends the correct amount of zeroes to the current frame number
+	    	string index = "";
 	    	float logIdx = Mathf.Log10(i+1);
 	    	
 	    	if (logIdx < 1.0)
-	    		indexSuffix += "0000";
+	    		index += "0000";
 	    	else if (logIdx < 2.0)
-	    		indexSuffix += "000";
+	    		index += "000";
 			else if (logIdx < 3.0)
-	    		indexSuffix += "00";
+	    		index += "00";
 			else if (logIdx < 4.0)
-	    		indexSuffix += "0";
+	    		index += "0";
+			else if (logIdx < 5.0)
+				index += "";
+			else Debug.Log("Too many frames in animation!");
 	    	
-	    	
-	    	indexSuffix += (i+1);
+	    	index += (i+1);
 	     
-	    	string fullFilename = pathPrefix + pathImageAssets + filename + indexSuffix + fileSuffix;
-	     
-	    	//WWW www = new WWW(fullFilename);
+			// This is deprecated functionality for compiling to mobile. We'll fix this soon
+
+			//string pathPrefix = @"file://";
+			//string fileSuffix = @".png";
+			//string pathImageAssets = Application.dataPath + "/depthPNGs";
+			//string fullFilename = pathPrefix + pathImageAssets + filename + indexSuffix + fileSuffix;
+			//WWW www = new WWW(fullFilename);
 	    	//Texture2D texTmp = new Texture2D(512, 1024, TextureFormat.DXT5, false);
 	    	//LoadImageIntoTexture compresses JPGs by DXT1 and PNGs by DXT5
 	    	//www.LoadImageIntoTexture(texTmp);
 
-			Texture2D resLoad = Resources.Load<Texture2D>("andy_demo/save." + indexSuffix);
+			// Create a Texture2D from the specified image file
+			Texture2D frame = Resources.Load<Texture2D>(FOLDER + FRAME_NAME_CONV + index);
 	     
-	    	imageBuffer.Add(resLoad);
+			// Add this frame to the ArrayList in RAM
+	    	frames.Add(frame);
 		}
 	}
 	
@@ -53,11 +73,10 @@ public class RunFrames : MonoBehaviour {
 		frameNum = 0;
 	}
 	
-	// Update is called once per frame
+	// Set the texture of the model and increment the frame counter
 	void Update () {
-
-		Texture2D temp = (Texture2D)imageBuffer[frameNum];
-		renderer.material.SetTexture("_MainTex", temp);
-		frameNum = (frameNum + 1)%97;
+		Texture2D tex = (Texture2D)frames[frameNum];
+		renderer.material.SetTexture("_MainTex", tex);
+		frameNum = (frameNum + 1) % NUM_FRAMES;
 	}
 }
