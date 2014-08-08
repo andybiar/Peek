@@ -1,9 +1,8 @@
 Peek
 ============
 
-Peek is a system of creating and deploying augmented reality content using the [Unity3D Game Engine](http://unity3d.com). Check out Peek in action on [Vimeo](http://vimeo.com/andybiar/peek).
+Peek is a system of creating augmented reality content using the [Unity3D Game Engine](http://unity3d.com). [Vimeo](http://vimeo.com/andybiar/peek).
 
-###Example Unity Project
 
 ![Screenshot of Example Unity Project](https://dl.dropboxusercontent.com/u/27507970/brad.png)
 
