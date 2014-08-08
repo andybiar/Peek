@@ -102,7 +102,7 @@ Shader "Custom/RGBDShader" {
 
 			void main() {
 
-				if ( visibility < 0.975 ) discard;
+				if ( visibility < 0.98 ) discard;
 
 				vec4 color = texture2D( _MainTex, vUv );
 				color.w = _Opacity;
