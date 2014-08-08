@@ -11,4 +11,4 @@ To see the shader in action, open the Unity Example Project in Unity, double cli
 
 ![Screenshot of Example Unity Project](https://dl.dropboxusercontent.com/u/27507970/brad.png)
 
-In the coming months I will publish a more thorough tutorial, but if you are interested in using Peek or collaborating, please feel free to contact me on Twitter @andybiar.
+In the coming months we will publish a more thorough tutorial, but if you are interested in using Peek or collaborating, please feel free to poke around in the Example Project or contact us directly on Twitter @andybiar @buenopolis.
