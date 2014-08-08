@@ -3,7 +3,7 @@ Peek
 
 Peek is a system of creating and deploying augmented reality content using the [Unity3D Game Engine](http://unity3d.com). This repository is home to all things Peek for the forseeable future. Check out Peek in action on [Vimeo](http://vimeo.com/andybiar/peek).
 
-##Example Unity Project
+###Example Unity Project
 
 The example Unity Project is a means of demonstrating and playing with the RGBDShader, a Unity shader designed to render 3D models from image frames exported from the [RGBD Toolkit](http://rgbdtoolkit.com).
 
